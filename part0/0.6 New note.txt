@@ -1,0 +1,13 @@
+note over browser:
+- fill in the text area by data
+- click submit
+end note
+note over browser:
+JavaScript:
+- Add the data to our array //notes.push(note)
+- Rebuild the DOM // function redrawNotes()
+- Send the data to Serve // function sendToServer(note)
+end note
+browser->server: HTTP POST  https://fullstack-exampleapp.herokuapp.com/new_note_spa
+browser->server: Content-type: application/json, {content: the data, date: current date}
+server-->browser: Status Code: 201 Created, {message: "note created"}

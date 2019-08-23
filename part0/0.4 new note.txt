@@ -1,0 +1,27 @@
+note over browser:
+- fill in the text area
+- click submit
+end note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note over server
+implement function "new_note" 
+where it adds our data to data.json
+end note
+server-->browser: Status Code: 302 Found
+note over browser:
+reload the page
+end note
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code Status Code: 304 Not Modified
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js Status Code: 304 Not Modified
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: data.json (with new data)
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
